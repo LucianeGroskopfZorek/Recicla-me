@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contato | Recicla-me Se For Capaz</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+    <script src="js/theme.js" defer></script>
+    <script src="js/contact.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div id="topo">
+        <span>♻️ RECICLA ♻️</span>
+        <h1>Recicla-me Se For Capaz</h1>
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Ativar modo escuro"
+          aria-pressed="false"
+        >
+          ☾ Modo escuro
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="content">
+        <h2>Fale com o Recicla-me</h2>
+        <p>
+          Tem dúvida sobre a coleta, uma sugestão ou quer fazer uma parceria?
+          Escolha o canal que preferir ou envie uma mensagem pelo formulário.
+        </p>
+      </section>
+
+      <div class="rc-home">
+        <section class="rc-secao" aria-label="Canais de atendimento">
+          <div class="rc-cards">
+            <a class="rc-card" href="mailto:reciclameseforcapaz@gmail.com">
+              <h3>E-mail</h3>
+              <p>reciclameseforcapaz@gmail.com</p>
+              <span class="rc-card__link">Escrever agora</span>
+            </a>
+
+            <!-- Troque pelo número real: 55 + DDD + número com 9 dígitos -->
+            <a
+              class="rc-card"
+              href="https://wa.me/554799995678"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h3>WhatsApp</h3>
+              <p>(47) 9999-5678</p>
+              <span class="rc-card__link">Chamar no WhatsApp</span>
+            </a>
+
+            <div class="rc-card rc-card--entulho">
+              <h3>Horário de atendimento</h3>
+              <p>Segunda a sexta, das 8h às 17h.</p>
+              <p
+                id="contato-status"
+                class="rc-status"
+                data-abre="8"
+                data-fecha="17"
+                data-dias="1,2,3,4,5"
+                aria-live="polite"
+              ></p>
+            </div>
+          </div>
+        </section>
+
+        <section class="rc-secao" id="mensagem">
+          <h2 class="rc-titulo">Envie uma mensagem</h2>
+          <p class="rc-sub">Todos os campos são obrigatórios.</p>
+
+          <form id="form-contato" class="rc-form" novalidate>
+            <div class="rc-campo">
+              <label for="c-nome">Nome</label>
+              <input id="c-nome" name="nome" type="text" autocomplete="name" aria-describedby="c-nome-erro" />
+              <p class="rc-erro" id="c-nome-erro"></p>
+            </div>
+
+            <div class="rc-campo">
+              <label for="c-email">E-mail</label>
+              <input id="c-email" name="email" type="email" autocomplete="email" aria-describedby="c-email-erro" />
+              <p class="rc-erro" id="c-email-erro"></p>
+            </div>
+
+            <div class="rc-campo rc-campo--largo">
+              <label for="c-assunto">Assunto</label>
+              <select id="c-assunto" name="assunto" aria-describedby="c-assunto-erro">
+                <option value="">Selecione um assunto</option>
+                <option>Dúvida sobre a coleta</option>
+                <option>Sugestão</option>
+                <option>Parceria</option>
+                <option>Outro assunto</option>
+              </select>
+              <p class="rc-erro" id="c-assunto-erro"></p>
+            </div>
+
+            <div class="rc-campo rc-campo--largo">
+              <label for="c-mensagem">Mensagem</label>
+              <textarea id="c-mensagem" name="mensagem" maxlength="500" aria-describedby="c-mensagem-erro c-contador"></textarea>
+              <p class="rc-contador" id="c-contador">0 de 500 caracteres</p>
+              <p class="rc-erro" id="c-mensagem-erro"></p>
+            </div>
+
+            <div class="rc-campo--largo">
+              <button type="submit" class="rc-btn">Enviar mensagem</button>
+            </div>
+          </form>
+
+          <div id="contato-sucesso" class="rc-sucesso" tabindex="-1" hidden>
+            <h3>Mensagem enviada, <span id="sucesso-nome"></span>!</h3>
+            <p>Vamos responder no e-mail <strong id="sucesso-email"></strong>.</p>
+            <button type="button" id="contato-outra" class="rc-btn">Enviar outra mensagem</button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cadastro.html">Cadastre-se</a></li>
+        <li><a href="about.html">Quem Somos</a></li>
+        <li><a href="separacao.html">Separação do lixo</a></li>
+        <li><a href="contact.html">Contato</a></li>
+      </ul>
+    </nav>
+
+    <footer>
+      <article>
+        <h3>Contato</h3>
+        <p>Email: reciclameseforcapaz@gmail.com</p>
+        <p>Telefone: (47) 9999-5678</p>
+      </article>
+      <div class="social-links" aria-label="Redes sociais">
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect
+              x="3"
+              y="3"
+              width="18"
+              height="18"
+              rx="5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <circle cx="18" cy="6" r="1.2" />
+          </svg>
+        </a>
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M13.4 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.4-.1-2.6-.1-2.6 0-4.3 1.6-4.3 4.4v2.1H7v3.1h2.8v8z"
+            />
+          </svg>
+        </a>
+      </div>
+      <p>&copy; 2026 Recicla-me. Todos os direitos reservados.</p>
+    </footer>
+  </body>
+</html>

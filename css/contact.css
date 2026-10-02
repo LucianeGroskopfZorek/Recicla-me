@@ -1,0 +1,115 @@
+/* ==========================================================
+   contact.css - página de contato (usa as variáveis do home.css)
+   ========================================================== */
+
+/* Status de atendimento */
+.rc-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-weight: 700;
+  color: var(--rc-titulo);
+}
+
+.rc-status::before {
+  content: "";
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #78909c;
+}
+
+.rc-status.rc-aberto::before {
+  background: var(--rc-verde);
+}
+
+/* Formulário */
+.rc-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 28px;
+  border: 1px solid var(--rc-borda);
+  border-radius: 18px;
+  background: var(--rc-cartao);
+  box-shadow: var(--rc-sombra);
+}
+
+.rc-campo--largo {
+  grid-column: 1 / -1;
+}
+
+.rc-campo label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+  color: var(--rc-titulo);
+}
+
+.rc-campo input,
+.rc-campo select,
+.rc-campo textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 2px solid var(--rc-borda);
+  border-radius: 10px;
+  background: var(--rc-cartao);
+  color: var(--rc-texto);
+  font: inherit;
+}
+
+.rc-campo textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.rc-campo input:focus-visible,
+.rc-campo select:focus-visible,
+.rc-campo textarea:focus-visible {
+  outline: 3px solid var(--rc-titulo);
+  outline-offset: 2px;
+}
+
+.rc-campo [aria-invalid="true"] {
+  border-color: #c62828;
+}
+
+.rc-erro {
+  min-height: 1.3em;
+  margin: 6px 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #c62828;
+}
+
+html[data-theme="dark"] .rc-erro {
+  color: #ff8a80;
+}
+
+.rc-contador {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+/* Confirmação */
+.rc-sucesso {
+  padding: 28px;
+  border: 1px solid var(--rc-borda);
+  border-left: 8px solid var(--rc-verde);
+  border-radius: 14px;
+  background: var(--rc-cartao);
+  box-shadow: var(--rc-sombra);
+}
+
+.rc-sucesso h3 {
+  margin: 0 0 8px;
+  color: var(--rc-titulo);
+}
+
+.rc-sucesso p {
+  margin: 0 0 18px;
+}

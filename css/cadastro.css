@@ -1,0 +1,239 @@
+/* Cadastro: mantém as cores e a tipografia definidas em style.css. */
+/* Painel e hierarquia visual do formulário. */
+.registration-main {
+  max-width: 1000px;
+  padding-top: 48px;
+  padding-bottom: 64px;
+}
+
+.registration-panel {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 44px 48px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-soft);
+}
+
+.registration-heading {
+  margin-bottom: 30px;
+}
+
+.registration-heading h2 {
+  margin-bottom: 10px;
+  color: var(--color-moss-dark);
+}
+
+.registration-heading p {
+  margin-bottom: 0;
+  color: var(--color-muted);
+}
+
+.registration-panel fieldset {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.registration-panel .choice-fieldset {
+  margin-top: 20px;
+}
+
+.registration-panel legend {
+  padding: 0 8px;
+  color: var(--color-moss-dark);
+  font-weight: 700;
+}
+
+.required-note {
+  margin-bottom: 20px;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+/* Grade dos campos e estados de foco acessíveis. */
+.required-note span,
+.form-field label span {
+  color: #a32626;
+  font-weight: 700;
+}
+
+html[data-theme="dark"] .required-note span,
+html[data-theme="dark"] .form-field label span {
+  color: #ffaaaa;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 24px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-field label {
+  display: block;
+  margin: 0;
+  color: var(--color-text);
+  font-size: 0.9375rem;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 5px;
+  background-color: var(--color-input);
+  color: var(--color-text);
+  font: inherit;
+}
+
+.form-field select {
+  cursor: pointer;
+}
+
+.form-field input[aria-invalid="true"],
+.form-field select[aria-invalid="true"] {
+  border-color: #a32626;
+}
+
+.field-hint,
+.field-error {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.field-hint {
+  color: var(--color-muted);
+}
+
+.field-error,
+.form-error {
+  color: #a32626;
+}
+
+html[data-theme="dark"] .field-error,
+html[data-theme="dark"] .form-error {
+  color: #ffaaaa;
+}
+
+.choice-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.choice-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--color-text);
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.choice-option input {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin: 3px 0 0;
+  accent-color: var(--color-action);
+}
+
+.consent-fieldset .choice-option {
+  margin-top: 8px;
+}
+
+.choice-option input:focus-visible {
+  outline: 3px solid var(--color-moss);
+  outline-offset: 3px;
+}
+
+.form-error {
+  margin: 20px 0 0;
+}
+
+.registration-success h2 {
+  margin-bottom: 12px;
+  color: var(--color-moss-dark);
+}
+
+.registration-success p {
+  color: var(--color-text);
+}
+
+.form-field input:focus-visible,
+.form-field select:focus-visible {
+  outline: 3px solid var(--color-moss);
+  outline-offset: 3px;
+}
+
+/* Ação principal com estados de hover e foco por teclado. */
+.submit-button {
+  min-height: 48px;
+  margin-top: 24px;
+  padding: 12px 28px;
+  border: 0;
+  border-radius: 5px;
+  background-color: var(--color-action);
+  color: var(--color-action-text);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
+}
+
+.submit-button:hover {
+  background-color: var(--color-moss-dark);
+  transform: translateY(-1px);
+}
+
+.submit-button:focus-visible,
+.registration-main a:focus-visible {
+  outline: 3px solid var(--color-moss);
+  outline-offset: 3px;
+}
+
+.registration-panel [hidden] {
+  display: none;
+}
+
+/* Em telas menores, os campos ficam empilhados. */
+@media (max-width: 767px) {
+  .registration-main {
+    padding: 32px 20px 48px;
+  }
+
+  .registration-panel {
+    padding: 32px 24px;
+  }
+
+  .field-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  .registration-panel {
+    padding: 26px 18px;
+  }
+
+  .registration-panel fieldset {
+    padding: 18px 14px;
+  }
+
+  .submit-button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,188 @@
+/* ==========================================================
+   separacao.css - guia das lixeiras e busca
+   Usa as variáveis e as lixeiras do home.css (carregue depois dele).
+   ========================================================== */
+
+/* Vídeo local no lugar do iframe */
+video.video-embed {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  background: #000;
+}
+
+.rc-so-leitor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Guia das lixeiras ---------- */
+.rc-lixeira--especial {
+  --cor: #bf360c;
+}
+
+.rc-lixeira[aria-pressed="true"] {
+  box-shadow:
+    0 0 0 4px var(--rc-cartao),
+    0 0 0 8px var(--cor);
+}
+
+.rc-painel {
+  --cor: #1565c0;
+  margin-top: 32px;
+  padding: 24px 26px;
+  border: 1px solid var(--rc-borda);
+  border-top: 8px solid var(--cor);
+  border-radius: 14px;
+  background: var(--rc-cartao);
+  box-shadow: var(--rc-sombra);
+}
+
+.rc-painel h3 {
+  margin: 0 0 16px;
+  font-size: 1.3rem;
+  color: var(--rc-titulo);
+}
+
+.rc-painel h4 {
+  margin: 0 0 8px;
+  color: var(--rc-titulo);
+}
+
+.rc-painel__colunas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px 32px;
+}
+
+.rc-painel ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rc-painel li {
+  position: relative;
+  margin-bottom: 6px;
+  padding-left: 26px;
+}
+
+.rc-painel li::before {
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+}
+
+#guia-vai li::before {
+  content: "✓";
+  color: var(--rc-verde);
+}
+#guia-nao li::before {
+  content: "✕";
+  color: #e5533d;
+}
+
+.rc-painel__dica {
+  margin: 18px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  font-weight: 600;
+  color: var(--rc-titulo);
+}
+
+/* ---------- Busca ---------- */
+.rc-busca__campo {
+  width: 100%;
+  max-width: 560px;
+  padding: 14px 18px;
+  border: 2px solid var(--rc-borda);
+  border-radius: 12px;
+  background: var(--rc-cartao);
+  color: var(--rc-texto);
+  font: inherit;
+  font-size: 1.05rem;
+}
+
+.rc-busca__campo:focus-visible {
+  outline: 3px solid var(--rc-titulo);
+  outline-offset: 3px;
+}
+
+.rc-sugestoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 4px;
+}
+
+.rc-chip {
+  padding: 6px 14px;
+  border: 1px solid var(--rc-borda);
+  border-radius: 99px;
+  background: var(--rc-cartao);
+  color: var(--rc-texto);
+  font: inherit;
+  cursor: pointer;
+}
+
+.rc-chip:hover {
+  background: var(--rc-verde-escuro);
+  color: #fff;
+}
+
+.rc-chip:focus-visible {
+  outline: 3px solid var(--rc-titulo);
+  outline-offset: 2px;
+}
+
+.rc-vazio {
+  min-height: 1.5em;
+  margin: 16px 0 0;
+  font-weight: 600;
+  color: var(--rc-titulo);
+}
+
+.rc-resultados {
+  display: grid;
+  gap: 12px;
+  max-width: 760px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rc-resultado-item {
+  --cor: #546e7a;
+  padding: 14px 18px;
+  border: 1px solid var(--rc-borda);
+  border-left: 10px solid var(--cor);
+  border-radius: 12px;
+  background: var(--rc-cartao);
+  box-shadow: var(--rc-sombra);
+}
+
+.rc-resultado-item strong,
+.rc-resultado-item__lixeira {
+  display: block;
+  color: var(--rc-titulo);
+}
+
+.rc-resultado-item__lixeira {
+  font-weight: 700;
+}
+
+.rc-resultado-item p {
+  margin: 4px 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rc-lixeira {
+    transition: none;
+  }
+}
