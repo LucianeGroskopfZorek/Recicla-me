@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Cadastre-se no Recicla-me Se For Capaz para acompanhar ações de reciclagem e sustentabilidade."
+    />
+    <title>Cadastro | Recicla-me</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/cadastro.css" />
+    <script src="js/theme.js" defer></script>
+    <script src="js/cadastro.js" defer></script>
+  </head>
+  <body>
+    <!-- Cabeçalho com a identidade do site e o controle de tema. -->
+    <header>
+      <div id="topo">
+        <span>♻️ RECICLA-ME ♻️</span>
+        <h1>Recicla-me Se For Capaz</h1>
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Ativar modo escuro"
+          aria-pressed="false"
+        >
+          ☾ Modo escuro
+        </button>
+      </div>
+    </header>
+
+    <nav aria-label="Navegação principal">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cadastro.html" aria-current="page">Cadastre-se</a></li>
+        <li><a href="quem-somos.html">Quem Somos</a></li>
+        <li><a href="separacao.html">Separação do lixo</a></li>
+        <li><a href="caminhao/index.html">Rota do caminhão</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+
+    <main class="registration-main">
+      <section class="registration-panel" aria-labelledby="cadastro-title">
+        <header class="registration-heading">
+          <h2 id="cadastro-title">Faça seu cadastro</h2>
+          <p>
+            Receba informações e participe de uma comunidade que cuida do
+            futuro.
+          </p>
+        </header>
+
+        <!-- Campos pessoais agrupados e identificados para leitores de tela. -->
+        <form id="cadastro-form" novalidate>
+          <fieldset aria-describedby="required-note">
+            <legend>Seus dados</legend>
+            <p class="required-note" id="required-note">
+              <span aria-hidden="true">*</span> Campos obrigatórios
+            </p>
+
+            <div class="field-grid">
+              <div class="form-field">
+                <label for="nome">Nome <span aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="nome"
+                  name="nome"
+                  autocomplete="name"
+                  aria-describedby="nome-error"
+                  required
+                />
+                <span class="field-error" id="nome-error" hidden></span>
+              </div>
+
+              <div class="form-field">
+                <label for="email"
+                  >E-mail <span aria-hidden="true">*</span></label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autocomplete="email"
+                  aria-describedby="email-error"
+                  required
+                />
+                <span class="field-error" id="email-error" hidden></span>
+              </div>
+
+              <div class="form-field">
+                <label for="telefone">Telefone <span id="telefone-required-marker" aria-hidden="true" hidden>*</span></label>
+                <input
+                  type="tel"
+                  id="telefone"
+                  name="telefone"
+                  autocomplete="tel"
+                  inputmode="tel"
+                  maxlength="15"
+                  aria-describedby="telefone-hint telefone-error"
+                />
+                <span class="field-hint" id="telefone-hint">Obrigatório apenas se escolher WhatsApp.</span>
+                <span class="field-error" id="telefone-error" hidden></span>
+              </div>
+
+              <div class="form-field">
+                <label for="bairro"
+                  >Bairro <span aria-hidden="true">*</span></label
+                >
+                <select id="bairro" name="bairro" aria-describedby="bairro-error" required>
+                  <option value="" selected disabled>
+                    Selecione seu bairro
+                  </option>
+                  <option value="agua-verde">Bairro Água Verde</option>
+                  <option value="alto-das-palmeiras">
+                    Bairro Alto das Palmeiras
+                  </option>
+                  <option value="boa-vista">Bairro Boa Vista</option>
+                  <option value="campo-da-agua-verde">
+                    Bairro Campo da Água Verde
+                  </option>
+                  <option value="centro">Centro</option>
+                  <option value="alto-da-tijuca">Bairro Alto da Tijuca</option>
+                  <option value="jardim-esperanca">
+                    Bairro Jardim Esperança
+                  </option>
+                </select>
+                <span class="field-error" id="bairro-error" hidden></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="choice-fieldset">
+            <legend>Como prefere receber os avisos? <span aria-hidden="true">*</span></legend>
+            <p class="field-hint" id="canal-hint">Escolha uma opção.</p>
+            <div class="choice-list">
+              <label class="choice-option" for="canal-email">
+                <input id="canal-email" type="radio" name="canal" value="E-mail" aria-describedby="canal-hint canal-error" required />
+                <span>E-mail</span>
+              </label>
+              <label class="choice-option" for="canal-whatsapp">
+                <input id="canal-whatsapp" type="radio" name="canal" value="WhatsApp" aria-describedby="canal-hint canal-error" required />
+                <span>WhatsApp</span>
+              </label>
+            </div>
+            <span class="field-error" id="canal-error" hidden></span>
+          </fieldset>
+
+          <fieldset class="choice-fieldset">
+            <legend>Tenho interesse em receber</legend>
+            <div class="choice-list">
+              <label class="choice-option" for="interesse-coleta">
+                <input id="interesse-coleta" type="checkbox" name="interesses" value="Dias da coleta no meu bairro" />
+                <span>Dias da coleta no meu bairro</span>
+              </label>
+              <label class="choice-option" for="interesse-dicas">
+                <input id="interesse-dicas" type="checkbox" name="interesses" value="Dicas de reciclagem" />
+                <span>Dicas de reciclagem</span>
+              </label>
+              <label class="choice-option" for="interesse-novidades">
+                <input id="interesse-novidades" type="checkbox" name="interesses" value="Novidades do Recicla-me" />
+                <span>Novidades do Recicla-me</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="choice-fieldset consent-fieldset">
+            <legend>Consentimento</legend>
+            <label class="choice-option" for="consentimento">
+              <input id="consentimento" type="checkbox" name="consentimento" aria-describedby="consentimento-error" required />
+              <span>Concordo em receber mensagens do Recicla-me e sei que posso sair quando quiser.</span>
+            </label>
+            <span class="field-error" id="consentimento-error" hidden></span>
+          </fieldset>
+
+          <p class="form-error" id="storage-error" role="alert" tabindex="-1" hidden></p>
+          <button class="submit-button" type="submit">Cadastrar</button>
+        </form>
+
+        <section class="registration-success" id="cadastro-success" aria-live="polite" hidden>
+          <h2 id="success-title" tabindex="-1">Cadastro realizado!</h2>
+          <p><span id="success-name"></span>, seu cadastro para o bairro <strong id="success-bairro"></strong> foi registrado.</p>
+          <button class="submit-button" id="novo-cadastro" type="button">Fazer outro cadastro</button>
+        </section>
+      </section>
+    </main>
+
+    <!-- Rodapé com atalhos para as redes sociais. -->
+    <footer>
+      <div class="social-links" role="group" aria-label="Redes sociais">
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect
+              x="3"
+              y="3"
+              width="18"
+              height="18"
+              rx="5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <circle cx="18" cy="6" r="1.2" />
+          </svg>
+        </a>
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M13.4 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.4-.1-2.6-.1-2.6 0-4.3 1.6-4.3 4.4v2.1H7v3.1h2.8v8z"
+            />
+          </svg>
+        </a>
+      </div>
+      <p>&copy; 2026 Recicla-me. Todos os direitos reservados.</p>
+    </footer>
+  </body>
+</html>

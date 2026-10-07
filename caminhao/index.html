@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onde está o caminhão? · Recicla-me</title>
+  <!-- Leaflet: biblioteca gratuita de mapas (arquivos na pasta libs, não precisa de chave) -->
+  <link rel="stylesheet" href="libs/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>♻ Onde está o caminhão?</h1>
+    <p>Demonstração: a rota é simulada. Na versão real, a posição viria de um servidor (UC4).</p>
+    <a class="voltar-site" href="../index.html">← Voltar ao site Recicla-me</a>
+  </header>
+
+  <main>
+    <!-- o mapa é desenhado pelo Leaflet dentro desta div -->
+    <div id="mapa" aria-label="Mapa com a rota do caminhão de coleta"></div>
+
+    <section id="painel">
+      <!-- role="status": o leitor de tela anuncia quando o texto muda -->
+      <p id="status" role="status">Carregando a rota...</p>
+
+      <div class="botoes">
+        <button type="button" id="botao-iniciar" disabled>▶ Iniciar rota</button>
+        <button type="button" id="botao-reiniciar" disabled>↺ Reiniciar</button>
+        <button type="button" id="botao-onde-estou">📍 Onde estou?</button>
+      </div>
+
+      <p id="info-usuario" role="status"></p>
+
+      <h2>Paradas</h2>
+      <ol id="lista-paradas"></ol>
+    </section>
+  </main>
+
+  <script src="libs/leaflet.js"></script>
+  <script src="caminhao.js"></script>
+</body>
+</html>

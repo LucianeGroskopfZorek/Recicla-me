@@ -1,0 +1,49 @@
+/* ===========================
+   ONDE ESTÁ O CAMINHÃO · style.css
+   =========================== */
+:root { --verde: #1A6632; --fundo: #F2F2F2; --erro: #B71C1C; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, sans-serif; background: var(--fundo); color: #333; line-height: 1.5; }
+
+header {
+  background:
+    linear-gradient(rgba(26, 102, 50, .76), rgba(26, 102, 50, .76)),
+    url("../imagens/banner_para_titulo.jpg") center / cover;
+  color: #fff;
+  padding: 16px;
+}
+header p { font-size: 14px; opacity: .9; }
+.voltar-site { display: inline-block; margin-top: 8px; color: #fff; font-weight: bold; }
+.voltar-site:focus-visible { outline: 3px solid #C0DD97; outline-offset: 3px; }
+
+main { display: grid; grid-template-columns: 1fr 340px; gap: 16px; padding: 16px; max-width: 1200px; margin: 0 auto; }
+
+/* o mapa PRECISA ter altura, senão o Leaflet não aparece */
+#mapa { height: 70vh; min-height: 360px; border-radius: 8px; border: 1px solid #bbb; background: #dfe9df; }
+
+#painel { background: #fff; border-radius: 8px; padding: 16px; border: 1px solid #ddd; }
+#status { font-weight: bold; color: var(--verde); margin-bottom: 12px; }
+#info-usuario { margin-top: 12px; font-size: 14px; }
+h2 { font-size: 16px; margin: 16px 0 8px; color: var(--verde); }
+
+.botoes { display: flex; flex-wrap: wrap; gap: 8px; }
+button { background: var(--verde); color: #fff; border: 0; padding: 10px 14px; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; }
+button:disabled { background: #999; cursor: not-allowed; }
+button:hover:not(:disabled) { background: #145228; }
+button:focus-visible { outline: 3px solid #C0DD97; outline-offset: 2px; }
+
+#lista-paradas { padding-left: 20px; }
+#lista-paradas li { margin-bottom: 6px; }
+#lista-paradas li.coletada { color: var(--verde); font-weight: bold; }
+#lista-paradas li.coletada::after { content: " ✔"; }
+
+/* ícone do caminhão no mapa (emoji dentro de um círculo) */
+.icone-caminhao { font-size: 26px; background: #fff; border: 2px solid var(--verde); border-radius: 50%; text-align: center; line-height: 34px; box-shadow: 0 2px 6px rgba(0,0,0,.35); }
+.icone-parada { font-size: 12px; background: var(--verde); color: #fff; border-radius: 50%; text-align: center; line-height: 24px; font-weight: bold; border: 2px solid #fff; }
+.icone-parada.coletada { background: #777; }
+
+/* celular: painel embaixo do mapa */
+@media (max-width: 800px) {
+  main { grid-template-columns: 1fr; }
+  #mapa { height: 55vh; }
+}

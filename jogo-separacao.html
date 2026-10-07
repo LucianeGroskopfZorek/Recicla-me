@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Desafio de separação | Recicla-me</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap">
+<style>
+:root{--fundo:#f3f7ef;--tinta:#1f2d1f;--verde:#2e7d32;--card:#fff;--erro:#c62828}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fundo);color:var(--tinta);font-family:"Fredoka",system-ui,sans-serif}
+.jg{max-width:860px;margin:0 auto;padding:16px 14px 28px}
+h1{
+  font-size:1.5rem;
+  margin:0 0 4px;
+  padding:14px 18px;
+  border-radius:12px;
+  color:#fff;
+  background:
+    linear-gradient(rgba(31,45,31,.68),rgba(31,45,31,.68)),
+    url("imagens/banner_para_titulo.jpg") center/cover;
+}
+.sub{margin:0 0 14px;opacity:.75}
+.placar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.placar div{background:var(--card);border-radius:12px;padding:8px 14px;min-width:96px;box-shadow:0 1px 3px #0002}
+.placar small{display:block;opacity:.65;font-size:.75rem}
+.placar b{font-size:1.4rem}
+#pts.sobe{animation:sobe .35s}
+@keyframes sobe{40%{transform:scale(1.35);color:var(--verde)}}
+.barra{height:8px;background:#dfe8d9;border-radius:8px;overflow:hidden}
+#tempo{height:100%;width:100%;background:var(--verde);transform-origin:left;transition:background .3s}
+#palco{position:relative;height:210px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
+#item{position:relative;z-index:20;touch-action:none;cursor:grab;user-select:none;text-align:center;background:var(--card);border-radius:18px;padding:12px 20px;box-shadow:0 6px 14px #0003;will-change:transform}
+#item:active{cursor:grabbing}
+#item .emo{font-size:3.2rem;line-height:1}
+#item .nome{font-weight:500}
+#item.solto{box-shadow:0 14px 24px #0004}
+#msg{min-height:2.6em;text-align:center;font-weight:500;max-width:560px}
+#msg.ok{color:var(--verde)}#msg.erro{color:var(--erro)}
+#lixeiras{display:grid;grid-template-columns:repeat(auto-fit,minmax(86px,1fr));gap:12px;margin-top:6px}
+.bin{--cor:#999;position:relative;z-index:5;background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;transform-origin:50% 100%}
+.bin:focus-visible{outline:3px solid var(--tinta);outline-offset:4px;border-radius:10px}
+.bin .tampa{width:92%;height:12px;background:var(--cor);filter:brightness(.82);border-radius:6px 6px 2px 2px;transform-origin:0 100%;transition:transform .25s}
+.bin .corpo{width:80%;height:84px;background:repeating-linear-gradient(90deg,#0000 0 14px,#0002 14px 16px),var(--cor);border-radius:0 0 12px 12px;clip-path:polygon(0 0,100% 0,92% 100%,8% 100%);display:grid;place-items:center;font-size:1.7rem}
+.bin .rot{font-size:.8rem;margin-top:4px;text-align:center;line-height:1.1}
+.bin.alvo .tampa{transform:rotate(-24deg)}
+.bin.bate{animation:bate .45s}
+.bin.treme{animation:treme .4s}
+.bin.dica .corpo{animation:pulsa .6s 3}
+@keyframes bate{25%{transform:scale(1.07,.92)}55%{transform:scale(.97,1.04)}}
+@keyframes treme{20%{transform:translateX(-7px) rotate(-3deg)}50%{transform:translateX(7px) rotate(3deg)}80%{transform:translateX(-3px)}}
+@keyframes pulsa{50%{filter:brightness(1.35);transform:scale(1.06)}}
+.flut{position:fixed;z-index:30;font-weight:600;pointer-events:none;font-size:1.3rem}
+#fim{position:fixed;inset:0;background:#0007;display:none;place-items:center;z-index:50;padding:16px}
+#fim.on{display:grid}
+#fim .cx{background:var(--card);border-radius:20px;padding:26px;max-width:380px;width:100%;text-align:center}
+#fim h2{margin:0 0 4px}
+#fim p{margin:6px 0}
+#fim button{margin-top:12px;background:var(--verde);color:#fff;border:0;border-radius:12px;padding:10px 22px;font:inherit;font-size:1.05rem;cursor:pointer}
+.regras{font-size:.85rem;opacity:.7;margin-top:14px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main class="jg">
+  <a href="separacao.html">Voltar ao guia de separação</a>
+  <h1>Desafio de separação</h1>
+  <p class="sub">Arraste cada objeto até a lixeira correta, toque em uma lixeira ou use as teclas de 1 a 7.</p>
+  <div class="placar" aria-label="Placar">
+    <div><small>Pontos</small><b id="pts">0</b></div>
+    <div><small>Combo</small><b id="combo">x1,0</b></div>
+    <div><small>Item</small><b id="prog">1/10</b></div>
+    <div><small>Recorde</small><b id="rec">0</b></div>
+  </div>
+  <div class="barra" role="progressbar" aria-label="Bônus de rapidez" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+    <div id="tempo"></div>
+  </div>
+  <section id="palco" aria-label="Objeto a separar"><div id="msg" role="status" aria-live="polite"></div></section>
+  <section id="lixeiras" aria-label="Lixeiras"></section>
+  <p class="regras">Pontuação: 100 pontos por acerto, até 50 de bônus por rapidez e multiplicador de combo até x2. Um erro desconta 50 pontos e zera o combo; acertar depois de errar vale 20 pontos.</p>
+  <p class="regras">As regras de coleta podem variar conforme a cidade. Consulte também as orientações do serviço de limpeza local.</p>
+</main>
+<div id="fim" role="dialog" aria-modal="true" aria-labelledby="fim-t"><div class="cx"><h2 id="fim-t"></h2><p id="fim-p"></p><p id="fim-r"></p><button id="again">Jogar de novo</button></div></div>
+
+<script src="js/jogo-separacao.js" defer></script>
+</body>
+</html>

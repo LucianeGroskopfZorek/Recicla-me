@@ -1,0 +1,395 @@
+/* ==========================================================
+   home.css - seções interativas da home do Recicla-me
+   Carregue DEPOIS do style.css.
+   ========================================================== */
+
+/* ---------- Variáveis ---------- */
+.rc-home {
+  --rc-verde-escuro: #334f43;
+  --rc-verde: #2e9d3f;
+  --rc-laranja: #ef6c00;
+  --rc-cartao: #ffffff;
+  --rc-texto: #3d4a43;
+  --rc-titulo: #1f3329;
+  --rc-borda: #2e9d3f;
+  --rc-sombra: 0 6px 18px rgba(0, 0, 0, 0.14);
+
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 8px 20px 56px;
+  color: var(--rc-texto);
+}
+
+/* Modo escuro: acompanha o atributo definido por js/theme.js. */
+html[data-theme="dark"] .rc-home {
+  --rc-cartao: #1f2f27;
+  --rc-texto: #dfeae3;
+  --rc-titulo: #f1faf3;
+  --rc-verde-escuro: #3f7d5c;
+  --rc-borda: #4cae5f;
+  --rc-sombra: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.rc-home [hidden] {
+  display: none !important;
+}
+
+/* ---------- Estrutura ---------- */
+.rc-secao {
+  margin-top: 48px;
+}
+
+.rc-titulo {
+  margin: 0 0 8px;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--rc-titulo);
+}
+
+.rc-sub {
+  margin: 0 0 24px;
+  max-width: 60ch;
+  color: var(--rc-titulo);
+}
+
+/* ---------- Botão ---------- */
+.rc-btn {
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--rc-verde-escuro);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.rc-btn:hover {
+  filter: brightness(1.2);
+}
+
+.rc-btn:focus-visible {
+  outline: 3px solid var(--rc-titulo);
+  outline-offset: 3px;
+}
+
+/* ---------- Cards de categoria ---------- */
+.rc-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.rc-card {
+  --cor: var(--rc-verde);
+  display: block;
+  padding: 22px 22px 20px;
+  border: 1px solid var(--rc-borda);
+  border-top: 8px solid var(--cor);
+  border-radius: 14px;
+  background: var(--rc-cartao);
+  box-shadow: var(--rc-sombra);
+  color: var(--rc-texto);
+  text-decoration: none;
+}
+
+.rc-card--comum {
+  --cor: #607d8b;
+}
+.rc-card--entulho {
+  --cor: var(--rc-laranja);
+}
+
+.rc-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  color: var(--rc-titulo);
+}
+
+.rc-card p {
+  margin: 0 0 14px;
+}
+
+.rc-card__link {
+  font-weight: 700;
+  color: var(--rc-titulo);
+  text-decoration: underline;
+  text-decoration-color: var(--cor);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+
+.rc-card:hover .rc-card__link {
+  text-decoration-thickness: 6px;
+}
+
+.rc-card:focus-visible {
+  outline: 3px solid var(--rc-titulo);
+  outline-offset: 3px;
+}
+
+/* ---------- Desafio das lixeiras ---------- */
+.rc-quiz__caixa {
+  padding: 28px;
+  border: 1px solid var(--rc-borda);
+  border-radius: 18px;
+  background: var(--rc-cartao);
+  box-shadow: var(--rc-sombra);
+}
+
+.rc-quiz__topo {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: var(--rc-titulo);
+}
+
+.rc-barra {
+  height: 8px;
+  margin-bottom: 24px;
+  border-radius: 99px;
+  background: rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.rc-barra > div {
+  width: 0;
+  height: 100%;
+  background: var(--rc-verde);
+  transition: width 0.4s ease;
+}
+
+.rc-quiz__item {
+  min-height: 140px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.rc-quiz__emoji {
+  display: block;
+  font-size: 4.5rem;
+  line-height: 1.1;
+}
+
+.rc-quiz__nome {
+  margin: 6px 0 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--rc-titulo);
+}
+
+/* O item "cai" na lixeira escolhida */
+.rc-cai {
+  animation: rc-cai 0.55s ease-in forwards;
+}
+
+@keyframes rc-cai {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(90px) scale(0.4);
+    opacity: 0;
+  }
+}
+
+/* Lixeiras: tampa + corpo com frisos */
+.rc-lixeiras {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 22px 14px;
+}
+
+.rc-lixeira {
+  --cor: #546e7a;
+  position: relative;
+  margin-top: 12px;
+  padding: 22px 8px 14px;
+  border: 0;
+  border-radius: 4px 4px 14px 14px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.1) 0 3px,
+      transparent 3px 16px
+    ),
+    var(--cor);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.rc-lixeira::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  left: -5px;
+  right: -5px;
+  height: 11px;
+  border-radius: 6px 6px 2px 2px;
+  background: var(--cor);
+  filter: brightness(0.8);
+}
+
+.rc-lixeira:hover {
+  transform: translateY(-3px);
+}
+
+.rc-lixeira:focus-visible {
+  outline: 3px solid var(--rc-titulo);
+  outline-offset: 5px;
+}
+
+/* Cores seguem o padrão brasileiro de coleta seletiva */
+.rc-lixeira--papel {
+  --cor: #1565c0;
+}
+.rc-lixeira--plastico {
+  --cor: #c62828;
+}
+.rc-lixeira--vidro {
+  --cor: #2e7d32;
+}
+.rc-lixeira--metal {
+  --cor: #f9a825;
+  color: #2b2b2b;
+}
+.rc-lixeira--organico {
+  --cor: #6d4c41;
+}
+.rc-lixeira--rejeito {
+  --cor: #546e7a;
+}
+
+/* Depois de responder */
+.rc-respondido {
+  pointer-events: none;
+}
+
+.rc-respondido .rc-lixeira:not(.rc-certo):not(.rc-errado) {
+  opacity: 0.4;
+}
+
+.rc-lixeira.rc-certo {
+  box-shadow:
+    0 0 0 4px var(--rc-cartao),
+    0 0 0 8px var(--rc-verde);
+}
+
+.rc-lixeira.rc-errado {
+  box-shadow:
+    0 0 0 4px var(--rc-cartao),
+    0 0 0 8px #c62828;
+  animation: rc-tremer 0.35s;
+}
+
+@keyframes rc-tremer {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
+}
+
+.rc-feedback {
+  min-height: 3.4em;
+  margin: 24px 0 12px;
+  font-weight: 600;
+  color: var(--rc-titulo);
+}
+
+.rc-resultado {
+  padding: 16px 0;
+  text-align: center;
+}
+
+.rc-resultado p {
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--rc-titulo);
+}
+
+.rc-resultado a {
+  font-size: 1rem;
+  color: var(--rc-titulo);
+}
+
+/* ---------- Dica rápida ---------- */
+.rc-dica {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  padding: 22px 26px;
+  border: 1px solid var(--rc-borda);
+  border-left: 8px solid var(--rc-laranja);
+  border-radius: 14px;
+  background: var(--rc-cartao);
+  box-shadow: var(--rc-sombra);
+}
+
+.rc-dica__conteudo {
+  flex: 1 1 320px;
+}
+
+.rc-dica__titulo {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+  color: var(--rc-titulo);
+}
+
+.rc-dica__texto {
+  margin: 0;
+}
+
+/* ---------- Movimento reduzido ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .rc-cai {
+    animation: none;
+    opacity: 0;
+  }
+  .rc-lixeira.rc-errado {
+    animation: none;
+  }
+  .rc-lixeira,
+  .rc-barra > div {
+    transition: none;
+  }
+}
+
+/* ---------- Celular ---------- */
+@media (max-width: 480px) {
+  .rc-quiz__caixa {
+    padding: 20px 16px;
+  }
+  .rc-quiz__emoji {
+    font-size: 3.6rem;
+  }
+}
+.rc-video { position: relative; margin-top: 32px; }
+.rc-video video {
+  display: block; width: 100%; max-height: 480px; object-fit: cover;
+  border-radius: 18px; background: #000; box-shadow: var(--rc-sombra);
+}
+.rc-video__botao {
+  position: absolute; right: 14px; bottom: 14px; padding: 8px 16px;
+  border: 0; border-radius: 99px; background: rgba(0, 0, 0, 0.65);
+  color: #fff; font: inherit; font-weight: 700; cursor: pointer;
+}
