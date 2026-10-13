@@ -324,22 +324,26 @@ tr th {
 }
 
 .theme-toggle {
-  border: 1px solid var(--color-border);
+  min-height: 40px;
+  border: 1px solid transparent;
   border-radius: 6px;
-  padding: 9px 14px;
-  background-color: var(--color-surface);
-  color: var(--color-text);
+  padding: 5px 10px;
+  background-color: transparent;
+  color: var(--color-muted);
   font: inherit;
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 500;
   cursor: pointer;
   transition:
     background-color 0.2s,
-    color 0.2s;
+    color 0.2s,
+    border-color 0.2s;
 }
 
 .theme-toggle:hover {
+  border-color: var(--color-border);
   background-color: var(--color-notice);
+  color: var(--color-text);
 }
 
 .theme-toggle:focus-visible {
@@ -739,8 +743,8 @@ body.pagina-separacao {
 }
 
 .pagina-separacao .theme-toggle {
-  min-height: 44px;
-  font-size: 1.125rem;
+  min-height: 40px;
+  font-size: 0.8rem;
 }
 
 .pagina-separacao footer h3,

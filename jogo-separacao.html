@@ -4,21 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Desafio de separação | Recicla-me</title>
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap">
+<script src="js/theme.js" defer></script>
 <style>
 :root{--fundo:#f3f7ef;--tinta:#1f2d1f;--verde:#2e7d32;--card:#fff;--erro:#c62828}
+html[data-theme="dark"]{--fundo:#17231d;--tinta:#e5eee7;--verde:#a8c9ad;--card:#22342a;--erro:#ffaaaa}
 *{box-sizing:border-box}
 body{margin:0;background:var(--fundo);color:var(--tinta);font-family:"Fredoka",system-ui,sans-serif}
 .jg{max-width:860px;margin:0 auto;padding:16px 14px 28px}
-h1{
+.jg h2{
   font-size:1.5rem;
-  margin:0 0 4px;
-  padding:14px 18px;
-  border-radius:12px;
-  color:#fff;
-  background:
-    linear-gradient(rgba(31,45,31,.68),rgba(31,45,31,.68)),
-    url("imagens/banner_para_titulo.jpg") center/cover;
+  margin:0 0 12px;
+  color:var(--tinta);
 }
 .sub{margin:0 0 14px;opacity:.75}
 .placar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
@@ -62,9 +60,35 @@ h1{
 </style>
 </head>
 <body>
+<header>
+  <div id="topo">
+    <span>♻️ RECICLA-ME ♻️</span>
+    <h1>Recicla-me Se For Capaz</h1>
+    <button
+      class="theme-toggle"
+      type="button"
+      aria-label="Ativar modo escuro"
+      aria-pressed="false"
+    >
+      ☾ Modo escuro
+    </button>
+  </div>
+</header>
+
+<nav aria-label="Navegação principal">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="cadastro.html">Cadastre-se</a></li>
+    <li><a href="separacao.html">Separação do lixo</a></li>
+    <li><a href="jogo-separacao.html" aria-current="page">Jogo de separação</a></li>
+    <li><a href="caminhao/index.html">Rota do caminhão</a></li>
+    <li><a href="contato.html">Contato</a></li>
+  </ul>
+</nav>
+
 <main class="jg">
   <a href="separacao.html">Voltar ao guia de separação</a>
-  <h1>Desafio de separação</h1>
+  <h2>Desafio de separação</h2>
   <p class="sub">Arraste cada objeto até a lixeira correta, toque em uma lixeira ou use as teclas de 1 a 7.</p>
   <div class="placar" aria-label="Placar">
     <div><small>Pontos</small><b id="pts">0</b></div>
@@ -81,6 +105,29 @@ h1{
   <p class="regras">As regras de coleta podem variar conforme a cidade. Consulte também as orientações do serviço de limpeza local.</p>
 </main>
 <div id="fim" role="dialog" aria-modal="true" aria-labelledby="fim-t"><div class="cx"><h2 id="fim-t"></h2><p id="fim-p"></p><p id="fim-r"></p><button id="again">Jogar de novo</button></div></div>
+
+<footer>
+  <article>
+    <h3>Contato</h3>
+    <p>Email: reciclameseforcapaz@gmail.com</p>
+    <p>Telefone: (47) 9999-5678</p>
+  </article>
+  <div class="social-links" aria-label="Redes sociais">
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2" />
+        <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" />
+        <circle cx="18" cy="6" r="1.2" />
+      </svg>
+    </a>
+    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M13.4 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.4-.1-2.6-.1-2.6 0-4.3 1.6-4.3 4.4v2.1H7v3.1h2.8v8z" />
+      </svg>
+    </a>
+  </div>
+  <p>&copy; 2026 Recicla-me. Todos os direitos reservados.</p>
+</footer>
 
 <script src="js/jogo-separacao.js" defer></script>
 </body>

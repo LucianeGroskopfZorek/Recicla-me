@@ -7,7 +7,6 @@ depois.
 ## Páginas
 
 - `index.html` — página inicial e acesso às categorias de descarte.
-- `quem-somos.html` — apresentação do projeto e informações sobre descarte.
 - `cadastro.html` — formulário de cadastro.
 - `contato.html` — canais de contato e formulário de mensagem.
 - `entulho.html` — orientações para galhos e entulho.
@@ -25,7 +24,6 @@ depois.
 ├── README.md
 ├── .gitignore
 ├── index.html
-├── quem-somos.html
 ├── cadastro.html
 ├── contato.html
 ├── entulho.html
