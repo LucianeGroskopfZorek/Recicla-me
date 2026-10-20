@@ -1,0 +1,39 @@
+/* Carrossel educativo - separacao.html (usa as variaveis do style.css; funciona no modo escuro) */
+.rc-carrossel { max-width: 820px; margin: 1.5rem auto; font-size: 1.125rem; line-height: 1.6; }
+.rc-viewport { overflow: hidden; border: 2px solid var(--color-border); border-radius: 12px; background: var(--color-surface); box-shadow: var(--shadow-soft); touch-action: pan-y; }
+.rc-track { display: block; }
+.rc-slide { box-sizing: border-box; padding: 1.5rem; color: var(--color-text); }
+.rc-slide h3 { margin: 0 0 .75rem; font-size: 1.5rem; color: var(--color-moss-dark); }
+.rc-slide p, .rc-slide li { margin: 0 0 .6rem; }
+.rc-slide ol, .rc-slide ul { padding-left: 1.4rem; margin: 0; }
+.rc-ilustra { margin: 0 auto 1rem; text-align: center; }
+.rc-ilustra svg { width: 100%; max-width: 300px; height: auto; }
+.rc-ilustra text { fill: var(--color-moss-dark); font: 700 16px sans-serif; text-anchor: middle; stroke: none; }
+.rc-check { display: flex; gap: .6rem; align-items: flex-start; cursor: pointer; padding: .4rem 0; min-height: 44px; }
+.rc-check input { width: 1.5rem; height: 1.5rem; margin-top: .15rem; flex: none; accent-color: var(--color-moss); }
+.rc-check input:checked + span { text-decoration: line-through; opacity: .7; }
+
+/* So vira carrossel quando o JavaScript estiver ativo */
+.rc-carrossel.is-ativo .rc-track { display: flex; transition: transform .4s ease; }
+.rc-carrossel.is-ativo .rc-slide { flex: 0 0 100%; min-width: 0; }
+.rc-controles { display: none; }
+.rc-carrossel.is-ativo .rc-controles { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-top: 1rem; }
+.rc-btn { min-height: 48px; min-width: 120px; padding: .5rem 1.1rem; font-size: 1.1rem; font-weight: 700; border: 0; border-radius: 8px; cursor: pointer; background: var(--color-action); color: var(--color-action-text); }
+.rc-btn:disabled { opacity: .45; cursor: not-allowed; }
+.rc-btn:focus-visible, .rc-dot:focus-visible { outline: 3px solid var(--color-link); outline-offset: 3px; }
+.rc-dots { display: flex; gap: .15rem; flex-wrap: wrap; justify-content: center; }
+.rc-dot { width: 44px; height: 44px; padding: 0; border: 0; background: transparent; cursor: pointer; position: relative; }
+.rc-dot::after { content: ""; position: absolute; inset: 15px; border-radius: 50%; border: 2px solid var(--color-moss); background: transparent; }
+.rc-dot[aria-current="true"]::after { background: var(--color-moss); }
+.rc-barra { height: 6px; margin-top: .75rem; border-radius: 3px; background: var(--color-table-border); overflow: hidden; }
+.rc-barra span { display: block; height: 100%; width: 0; background: var(--color-moss); transition: width .4s ease; }
+.rc-status { margin: .5rem 0 0; text-align: center; color: var(--color-muted); font-size: 1rem; }
+@media (max-width: 560px) {
+  .rc-slide { padding: 1.1rem; }
+  .rc-controles { flex-wrap: wrap; }
+  .rc-dots { order: 3; width: 100%; }
+  .rc-btn { flex: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rc-carrossel.is-ativo .rc-track, .rc-barra span { transition: none; }
+}
