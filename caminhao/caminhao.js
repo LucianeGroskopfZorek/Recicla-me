@@ -267,7 +267,7 @@ botaoOndeEstou.addEventListener("click", function () {
     function (posicao) {                        // deu certo
       const minhaPos = [posicao.coords.latitude, posicao.coords.longitude];
       if (marcadorUsuario) mapa.removeLayer(marcadorUsuario);
-      marcadorUsuario = L.marker(minhaPos).addTo(mapa).bindPopup("Você está aqui").openPopup();
+      marcadorUsuario = L.marker(minhaPos, { alt: "Sua localização" }).addTo(mapa).bindPopup("Você está aqui").openPopup();
 
       const metros = mapa.distance(minhaPos, caminhao.getLatLng());
       infoUsuario.textContent = "Você está a " + (metros / 1000).toFixed(1).replace(".", ",") + " km do caminhão (em linha reta).";

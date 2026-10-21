@@ -18,10 +18,10 @@ body{margin:0;background:var(--fundo);color:var(--tinta);font-family:"Fredoka",s
   margin:0 0 12px;
   color:var(--tinta);
 }
-.sub{margin:0 0 14px;opacity:.75}
+.sub{margin:0 0 14px}
 .placar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
 .placar div{background:var(--card);border-radius:12px;padding:8px 14px;min-width:96px;box-shadow:0 1px 3px #0002}
-.placar small{display:block;opacity:.65;font-size:.75rem}
+.placar small{display:block;font-size:.75rem}
 .placar b{font-size:1.4rem}
 #pts.sobe{animation:sobe .35s}
 @keyframes sobe{40%{transform:scale(1.35);color:var(--verde)}}
@@ -55,7 +55,7 @@ body{margin:0;background:var(--fundo);color:var(--tinta);font-family:"Fredoka",s
 #fim h2{margin:0 0 4px}
 #fim p{margin:6px 0}
 #fim button{margin-top:12px;background:var(--verde);color:#fff;border:0;border-radius:12px;padding:10px 22px;font:inherit;font-size:1.05rem;cursor:pointer}
-.regras{font-size:.85rem;opacity:.7;margin-top:14px}
+.regras{font-size:.85rem;margin-top:14px}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -104,7 +104,7 @@ body{margin:0;background:var(--fundo);color:var(--tinta);font-family:"Fredoka",s
   <p class="regras">Pontuação: 100 pontos por acerto, até 50 de bônus por rapidez e multiplicador de combo até x2. Um erro desconta 50 pontos e zera o combo; acertar depois de errar vale 20 pontos.</p>
   <p class="regras">As regras de coleta podem variar conforme a cidade. Consulte também as orientações do serviço de limpeza local.</p>
 </main>
-<div id="fim" role="dialog" aria-modal="true" aria-labelledby="fim-t"><div class="cx"><h2 id="fim-t"></h2><p id="fim-p"></p><p id="fim-r"></p><button id="again">Jogar de novo</button></div></div>
+<div id="fim" role="dialog" aria-modal="true" aria-labelledby="fim-t"><div class="cx"><h2 id="fim-t">Fim de jogo</h2><p id="fim-p"></p><p id="fim-r"></p><button id="again">Jogar de novo</button></div></div>
 
 <footer>
   <article>
