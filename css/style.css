@@ -160,11 +160,11 @@ nav ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 32px;
-  gap: 4px;
+  padding: 0 12px;
+  gap: 2px;
 }
 
 nav ul li a {
@@ -173,8 +173,9 @@ nav ul li a {
   text-decoration: none;
   font-size: 0.9375rem;
   font-weight: 500;
-  padding: 12px 20px;
+  padding: 12px 14px;
   border-radius: 4px;
+  white-space: nowrap;
   transition:
     background-color 0.2s,
     color 0.2s;
@@ -558,6 +559,10 @@ footer article {
 
 /* 7. Responsivo */
 @media (max-width: 768px) {
+  nav ul {
+    flex-wrap: wrap;
+  }
+
   #topo {
     flex-direction: column;
     text-align: center;
@@ -601,11 +606,13 @@ footer article {
   nav ul {
     gap: 2px;
     padding: 8px 12px;
+    flex-wrap: wrap;
   }
 
   nav ul li a {
     font-size: 0.82rem;
     padding: 8px 12px;
+    white-space: normal;
   }
 
   .content {
@@ -735,16 +742,6 @@ body.pagina-separacao {
 .pagina-separacao .theme-toggle:focus-visible {
   outline: 3px solid var(--color-link);
   outline-offset: 3px;
-}
-
-.pagina-separacao nav ul li a {
-  min-height: 44px;
-  font-size: 1.125rem;
-}
-
-.pagina-separacao .theme-toggle {
-  min-height: 40px;
-  font-size: 0.8rem;
 }
 
 .pagina-separacao footer h3,

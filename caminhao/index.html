@@ -3,19 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Onde está o caminhão? · Recicla-me</title>
+  <title>Onde está o caminhão? | Recicla-me Se For Capaz</title>
+  <link rel="stylesheet" href="../css/style.css">
   <!-- Leaflet: biblioteca gratuita de mapas (arquivos na pasta libs, não precisa de chave) -->
   <link rel="stylesheet" href="libs/leaflet.css">
   <link rel="stylesheet" href="style.css">
+  <script src="../js/theme.js" defer></script>
 </head>
 <body>
 
   <header>
-    <h1>♻ Onde está o caminhão?</h1>
-    <p>Demonstração: a rota é simulada. Na versão real, a posição viria de um servidor (UC4).</p>
-    <a class="voltar-site" href="../index.html">← Voltar ao site Recicla-me</a>
-    <a class="voltar-site" href="../jogo-separacao.html">Jogo de separação</a>
+    <div id="topo">
+      <span>♻️ RECICLA-ME ♻️</span>
+      <h1>Recicla-me Se For Capaz</h1>
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-label="Ativar modo escuro"
+        aria-pressed="false"
+      >
+        ☾ Modo escuro
+      </button>
+    </div>
   </header>
+
+  <nav aria-label="Navegação principal">
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../cadastro.html">Cadastre-se</a></li>
+      <li><a href="../separacao.html">Separação do lixo</a></li>
+      <li><a href="../jogo-separacao.html">Jogo de separação</a></li>
+      <li><a href="index.html" aria-current="page">Rota do caminhão</a></li>
+      <li><a href="../contato.html">Contato</a></li>
+    </ul>
+  </nav>
+
+  <p class="aviso-rota">Demonstração: a rota é simulada. Na versão real, a posição viria de um servidor (UC4).</p>
 
   <main>
     <!-- o mapa é desenhado pelo Leaflet dentro desta div -->
