@@ -6,6 +6,7 @@
     <title>Início | Recicla-me Se For Capaz</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/objetivo.css" />
     <script src="js/theme.js" defer></script>
   </head>
   <body>
@@ -46,6 +47,31 @@
         <a href="separacao.html" class="button">Saiba mais</a>
       </section>
 
+      <section class="objetivo" id="objetivo" aria-labelledby="objetivo-titulo">
+        <h2 id="objetivo-titulo">O Problema</h2>
+        <p>
+          Muitos municípios brasileiros têm dificuldade para gerenciar a coleta
+          seletiva de forma eficiente. Canoinhas (SC) não é exceção: os
+          moradores não sabiam os dias de coleta, os motoristas não tinham um
+          sistema digital de check-in e os administradores não tinham uma visão
+          centralizada da operação.
+        </p>
+        <p class="objetivo__destaque">
+          O <strong>Recicla-me Se For Capaz</strong> foi criado para resolver
+          exatamente isso.
+        </p>
+
+        <h3>💡 O que o projeto faz</h3>
+        <p class="objetivo__dica">Clique em um item para saber mais:</p>
+
+        <div
+          class="objetivo__abas"
+          role="tablist"
+          aria-label="Funcionalidades do projeto"
+        ></div>
+        <div class="objetivo__painel" role="tabpanel" aria-live="polite"></div>
+      </section>
+
       <div class="rc-home">
         <div class="rc-video">
           <video
@@ -68,6 +94,17 @@
           </button>
         </div>
       </div>
+
+      <section class="content pensamento" aria-label="Pensamento">
+        <blockquote>
+          <p>
+            Cada material separado é um gesto simples. Quando uma comunidade inteira
+            faz isso junto, o resultado é uma cidade mais limpa e um futuro mais
+            verde.
+          </p>
+          <footer>♻️ Recicla-me Se For Capaz</footer>
+        </blockquote>
+      </section>
     </main>
 
     <footer>
@@ -122,5 +159,6 @@
     </footer>
 
     <script src="js/home.js" defer></script>
+    <script src="js/objetivo.js" defer></script>
   </body>
 </html>
