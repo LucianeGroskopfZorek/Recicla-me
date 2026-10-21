@@ -5,14 +5,14 @@
 
 /* ---------- Variáveis ---------- */
 .rc-home {
-  --rc-verde-escuro: #334f43;
-  --rc-verde: #2e9d3f;
+  --rc-verde-escuro: var(--cor-menu);
+  --rc-verde: var(--cor-destaque);
   --rc-laranja: #ef6c00;
-  --rc-cartao: #ffffff;
-  --rc-texto: #3d4a43;
-  --rc-titulo: #1f3329;
-  --rc-borda: #2e9d3f;
-  --rc-sombra: 0 6px 18px rgba(0, 0, 0, 0.14);
+  --rc-cartao: var(--cor-cartao);
+  --rc-texto: var(--cor-texto);
+  --rc-titulo: var(--cor-texto);
+  --rc-borda: var(--cor-destaque);
+  --rc-sombra: var(--shadow-soft);
 
   max-width: 1100px;
   margin: 0 auto;
@@ -20,18 +20,17 @@
   color: var(--rc-texto);
 }
 
-/* Modo escuro: acompanha o atributo definido por js/theme.js. */
-html[data-theme="dark"] .rc-home {
-  --rc-cartao: #1f2f27;
-  --rc-texto: #dfeae3;
-  --rc-titulo: #f1faf3;
-  --rc-verde-escuro: #3f7d5c;
-  --rc-borda: #4cae5f;
-  --rc-sombra: 0 6px 18px rgba(0, 0, 0, 0.4);
-}
-
 html {
   scroll-behavior: smooth;
+}
+
+.content img.logo-projeto {
+  display: block;
+  max-width: min(100%, 420px);
+  height: auto;
+  margin: 0 auto 1.5rem;
+  border-radius: 12px;
+  background: #fff;
 }
 
 .rc-home [hidden] {
@@ -61,7 +60,7 @@ html {
   border: 0;
   border-radius: 10px;
   background: var(--rc-verde-escuro);
-  color: #fff;
+  color: var(--color-white);
   font: inherit;
   font-weight: 700;
   cursor: pointer;

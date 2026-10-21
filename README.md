@@ -1,4 +1,8 @@
-# ♻️ Recicla-me Se For Capaz
+<p align="center">
+  <img src="imagens/logo-recicla-me.jpg" alt="Logo do Recicla-me Se For Capaz" width="380" />
+</p>
+
+<h1 align="center">♻️ Recicla-me Se For Capaz</h1>
 
 [![Site no ar](https://img.shields.io/badge/site-no%20ar-2e7d32?logo=github)](https://lucianegroskopfzorek.github.io/Recicla-me/)
 ![HTML5](https://img.shields.io/badge/HTML5-e34f26?logo=html5&logoColor=white)
