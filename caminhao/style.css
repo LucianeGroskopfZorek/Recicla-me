@@ -1,7 +1,7 @@
 /* ===========================
    ONDE ESTÁ O CAMINHÃO · style.css
    =========================== */
-:root { --verde: #1A6632; --fundo: #F2F2F2; --erro: #B71C1C; }
+:root { --verde: var(--cor-destaque); --erro: #B71C1C; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 .aviso-rota { margin: 16px auto 0; padding: 0 16px; text-align: center; }
 
@@ -10,15 +10,15 @@ main { display: grid; grid-template-columns: 1fr 340px; gap: 16px; padding: 16px
 /* o mapa PRECISA ter altura, senão o Leaflet não aparece */
 #mapa { height: 70vh; min-height: 360px; border-radius: 8px; border: 1px solid #bbb; background: #dfe9df; }
 
-#painel { background: #fff; border-radius: 8px; padding: 16px; border: 1px solid #ddd; }
+#painel { background: var(--cor-cartao); color: var(--cor-texto); border-radius: 8px; padding: 16px; border: 1px solid var(--color-border); }
 #status { font-weight: bold; color: var(--verde); margin-bottom: 12px; }
 #info-usuario { margin-top: 12px; font-size: 14px; }
 h2 { font-size: 16px; margin: 16px 0 8px; color: var(--verde); }
 
 .botoes { display: flex; flex-wrap: wrap; gap: 8px; }
-.botoes button { background: var(--verde); color: #fff; border: 0; padding: 10px 14px; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; }
+.botoes button { background: var(--cor-menu); color: #fff; border: 0; padding: 10px 14px; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; }
 .botoes button:disabled { background: #999; cursor: not-allowed; }
-.botoes button:hover:not(:disabled) { background: #145228; }
+.botoes button:hover:not(:disabled) { background: var(--cor-destaque); color: var(--color-action-text); }
 .botoes button:focus-visible { outline: 3px solid #C0DD97; outline-offset: 2px; }
 
 #lista-paradas { padding-left: 20px; }

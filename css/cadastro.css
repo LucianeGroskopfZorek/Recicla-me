@@ -105,6 +105,11 @@ html[data-theme="dark"] .form-field label span {
   border-color: #a32626;
 }
 
+html[data-theme="dark"] .form-field input[aria-invalid="true"],
+html[data-theme="dark"] .form-field select[aria-invalid="true"] {
+  border-color: #ffaaaa;
+}
+
 .field-hint,
 .field-error {
   margin: 0;
@@ -174,6 +179,7 @@ html[data-theme="dark"] .form-error {
 .form-field select:focus-visible {
   outline: 3px solid var(--color-moss);
   outline-offset: 3px;
+  border-color: var(--cor-destaque);
 }
 
 /* Ação principal com estados de hover e foco por teclado. */

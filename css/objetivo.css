@@ -1,10 +1,10 @@
 .objetivo {
-  max-width: 900px;
-  margin: 32px auto;
-  padding: 36px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 56px 48px;
   border: 1px solid var(--color-border);
   border-radius: 12px;
-  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  background: var(--cor-cartao);
   box-shadow: var(--shadow-soft);
 }
 
@@ -18,9 +18,9 @@
 .objetivo__aba {
   min-height: 72px;
   padding: 16px;
-  border: 1px solid rgba(46, 125, 50, 0.45);
+  border: 1px solid color-mix(in srgb, var(--cor-destaque) 45%, transparent);
   border-radius: 10px;
-  background: rgba(46, 125, 50, 0.08);
+  background: color-mix(in srgb, var(--cor-destaque) 8%, transparent);
   color: inherit;
   font: inherit;
   font-weight: 600;
@@ -34,19 +34,20 @@
 }
 
 .objetivo__aba:hover {
-  background: rgba(46, 125, 50, 0.16);
+  background: color-mix(in srgb, var(--cor-destaque) 16%, transparent);
   transform: translateY(-2px);
 }
 
 .objetivo__aba[aria-selected="true"] {
-  border-color: #2e7d32;
-  background: rgba(46, 125, 50, 0.22);
-  box-shadow: inset 0 0 0 1px #2e7d32;
+  border-color: var(--cor-destaque);
+  background: var(--cor-destaque);
+  box-shadow: inset 0 0 0 1px var(--cor-destaque);
+  color: var(--color-action-text);
 }
 
 .objetivo__aba:focus-visible,
 .objetivo__painel:focus-visible {
-  outline: 3px solid #2e7d32;
+  outline: 3px solid var(--cor-destaque);
   outline-offset: 3px;
 }
 
@@ -54,9 +55,9 @@
   min-height: 88px;
   margin-top: 18px;
   padding: 20px;
-  border: 1px solid rgba(46, 125, 50, 0.35);
+  border: 1px solid color-mix(in srgb, var(--cor-destaque) 35%, transparent);
   border-radius: 10px;
-  background: rgba(46, 125, 50, 0.06);
+  background: color-mix(in srgb, var(--cor-destaque) 6%, transparent);
   color: inherit;
   line-height: 1.7;
 }
@@ -69,8 +70,8 @@
 .pensamento blockquote {
   margin: 0;
   padding: 1.5rem 1.25rem;
-  border-left: 5px solid #2e7d32;
-  background: rgba(46, 125, 50, 0.12);
+  border-left: 5px solid var(--cor-destaque);
+  background: color-mix(in srgb, var(--cor-destaque) 12%, transparent);
   border-radius: 0 10px 10px 0;
 }
 
@@ -82,15 +83,16 @@
 }
 
 .pensamento footer {
+  margin-top: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
   font-size: 0.9rem;
   opacity: 0.8;
+  text-align: center;
 }
 
 @media (max-width: 600px) {
-  .objetivo {
-    padding: 24px 18px;
-  }
-
   .objetivo__abas {
     grid-template-columns: 1fr;
   }
