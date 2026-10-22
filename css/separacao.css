@@ -3,6 +3,109 @@
    Usa as variáveis e as lixeiras do home.css (carregue depois dele).
    ========================================================== */
 
+.categorias {
+  margin: 0 auto 48px;
+}
+
+.categorias h2 {
+  margin-bottom: 8px;
+}
+
+.categorias > p {
+  margin-bottom: 24px;
+}
+
+.categorias__grade {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.categorias__cartao {
+  --categorias-acento: var(--cor-destaque);
+  display: flex;
+  min-height: 240px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 22px;
+  border: 1px solid var(--cor-destaque);
+  border-top: 8px solid var(--categorias-acento);
+  border-radius: 14px;
+  background: var(--cor-cartao);
+  box-shadow: var(--shadow-soft);
+  color: var(--cor-texto);
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.categorias__cartao--comum {
+  --categorias-acento: color-mix(in srgb, #607d8b 75%, var(--cor-cartao));
+}
+
+.categorias__cartao--entulho {
+  --categorias-acento: color-mix(in srgb, #ef6c00 65%, var(--cor-texto));
+}
+
+.categorias__cartao:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(38, 59, 49, 0.18);
+}
+
+.categorias__cartao:focus-visible {
+  outline: 3px solid var(--cor-destaque);
+  outline-offset: 3px;
+}
+
+.categorias__icone {
+  display: block;
+  min-height: 1.2em;
+  margin-bottom: 12px;
+  font-size: 2.75rem;
+  line-height: 1.2;
+}
+
+.categorias__cartao h3 {
+  margin: 0 0 8px;
+  color: var(--cor-texto);
+  font-size: 1.25rem;
+}
+
+.categorias__cartao p {
+  margin: 0 0 18px;
+  color: var(--cor-texto);
+}
+
+.categorias__acao {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  margin-top: auto;
+  color: var(--cor-destaque);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--categorias-acento);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 700px) {
+  .categorias__grade {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .categorias__cartao {
+    transition: none;
+  }
+
+  .categorias__cartao:hover {
+    transform: none;
+  }
+}
+
 /* Vídeo local no lugar do iframe */
 video.video-embed {
   display: block;
